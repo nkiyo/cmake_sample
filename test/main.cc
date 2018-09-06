@@ -1,5 +1,6 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
+#include "MyClass.h"
 
 namespace {
 
@@ -34,11 +35,14 @@ virtual void TearDown() {
 };
 
 TEST_F(FooTest, MethodBarDoesAbc) {
-    EXPECT_EQ(0, 1);
+    //EXPECT_EQ(0, 1);
 }
 
 TEST_F(FooTest, DoesXyz) {
     EXPECT_EQ(0, 0);
+
+    MyClass mc;
+    ASSERT_EQ(1, mc.myFunc(1));
 }
 
 } // namespace
