@@ -11,15 +11,18 @@ include_directories(
 link_directories(
     ~/github_repo/googletest/googlemock/gtest
     ~/github_repo/googletest/googlemock
-    ../util
 )
+
+ # 直接のサブディレクトリでないディレクトリに依存する場合の定義法
+ #   => stackoverflow 7980784
+add_subdirectory(../util ../../util)
 
 add_executable(UnitTest
     main.cc
 )
 
 target_link_libraries(UnitTest
+    util
     gtest
     gmock
-    util
 )
