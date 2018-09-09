@@ -9,3 +9,5 @@ add_executable(Test
 )
 
 target_link_libraries(Test util)
+
+install(TARGETS Test DESTINATION ~/bin)
