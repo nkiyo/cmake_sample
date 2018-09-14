@@ -1,6 +1,6 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
-#include "MyClass.h"
+#include "util/MyClass.h"
 
 namespace {
 

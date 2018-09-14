@@ -3,12 +3,12 @@ cmake_minimum_required(VERSION 2.8)
 project(CMakeSample)
 
 set(CMAKE_CXX_FLAGS "-Wall -coverage")
-set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMakeModules)
 
 # For creating LCOV HTML
 #   $ cmake ..
 #   $ make
 #   $ make coverage
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMakeModules)
 if(CMAKE_COMPILER_IS_GNUCXX)
     include(CodeCoverage)
     APPEND_COVERAGE_COMPILER_FLAGS(coverage)
