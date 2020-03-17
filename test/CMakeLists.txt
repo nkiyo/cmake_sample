@@ -3,20 +3,21 @@ cmake_minimum_required(VERSION 2.8)
 set(CMAKE_CXX_FLAGS "-Wall -coverage")
 
 include_directories(
-    ~/github_repo/googletest/googletest/include
-    ~/github_repo/googletest/googlemock/include
+    ~/googletest/googletest/include
+    ~/googletest/googlemock/include
     #../util
 )
 
 link_directories(
-    ~/github_repo/googletest/googlemock/gtest
-    ~/github_repo/googletest/googlemock
+  #~/github_repo/googletest/googlemock/gtest
+  #~/github_repo/googletest/googlemock
+    ~/googletest/build/lib
 )
 
  # 直接のサブディレクトリでないディレクトリに依存する場合の定義法
  #   => stackoverflow 7980784
  #add_subdirectory(../util ../../util)
- add_subdirectory(util)
+ add_subdirectory(util) # symlink
 
 # For creating LCOV HTML
 #   $ cmake ..
@@ -41,4 +42,5 @@ target_link_libraries(UnitTest
     util
     gtest
     gmock
+    pthread
 )
