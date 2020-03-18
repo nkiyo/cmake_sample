@@ -11,11 +11,23 @@ make
 ## テストのビルド方法
 
 ```bash
+cd test/build
+cmake ..
+make
+./UnitTest # ビルドされたファイルを実行
 ```
 
 ## カバレッジ計測方法
 
 ## linter 実行方法
+
+```bash
+cd build
+cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+# => 同じディレクトリに compile_commands.json ができたらOK
+cd ..
+clang-tidy-6.0 --checks=-*,readability-braces-around-statements main.cc -p build/compile_commands.json -fix
+```
 
 ## formatter 実行方法
 
@@ -37,8 +49,6 @@ cd lib # ここに .a ファイルができている
 
 # TODO
 
-- アプリのビルド方法、実行方法を記載する
-- テストのビルド方法を記載する
 - カバレッジ計測方法を記載する
 - formatter を実行する
 - linter を実行する
