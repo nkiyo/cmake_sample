@@ -1,5 +1,7 @@
 #include "MyClass.h"
+#include <stdio.h>
 
 int MyClass::myFunc(int n) {
-    return n;
+  printf("%d\n", n);
+  return n;
 }

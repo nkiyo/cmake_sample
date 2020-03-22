@@ -21,15 +21,25 @@ make
 
 ## linter 実行方法
 
+.clang-tidy にlint内容を記載の上、以下を実行する。
+
 ```bash
 cd build
 cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
 # => 同じディレクトリに compile_commands.json ができたらOK
 cd ..
-clang-tidy-6.0 --checks=-*,readability-braces-around-statements main.cc -p build/compile_commands.json -fix
+clang-tidy-6.0 main.cc -p build/compile_commands.json
+# 自動で修正したい場合
+clang-tidy-6.0 main.cc -p build/compile_commands.json -fix
 ```
 
 ## formatter 実行方法
+
+.clang-format にフォーマット定義を記載の上、以下を実行する。
+
+```bash
+clang-format-6.0 -i -style=file main.cc
+```
 
 # third party libraries
 
@@ -49,9 +59,10 @@ cd lib # ここに .a ファイルができている
 
 # TODO
 
-- カバレッジ計測方法を記載する
-- formatter を実行する
 - linter を実行する
+  - .clang-tidy 定義
+- formatter を実行する
+- カバレッジ計測方法を記載する
 - コード行数をカウントする
 - コンパイラどっちつかうか
 - thrid party用のディレクトリに依存ライブラリをまとめる？？

@@ -1,4 +1,4 @@
 class MyClass {
-    public:
-        int myFunc(int);
+ public:
+  int myFunc(int);
 };

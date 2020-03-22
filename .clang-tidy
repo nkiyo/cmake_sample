@@ -1,0 +1,8 @@
+---
+
+  Checks:          '-*,
+                    readability-*,
+                    google-*'
+...
+
+
