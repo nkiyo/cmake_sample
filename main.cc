@@ -1,9 +1,7 @@
-#include "stdio.h"
+#include <stdio.h>
 #include "util/MyClass.h"
 
 int main() {
   MyClass mc;
-  if (true) {
-    printf("### %d\n", mc.myFunc(1));
-  }
+  printf("### %d\n", mc.myFunc(1));
 }

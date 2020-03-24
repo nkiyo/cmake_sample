@@ -59,14 +59,14 @@ cd lib # ここに .a ファイルができている
 
 # TODO
 
-- linter を実行する
-  - .clang-tidy 定義
-- formatter を実行する
+- ALE と clang-tidy 連携
 - カバレッジ計測方法を記載する
+- json
+- hiredis
+- .clang-tidy いい感じにする
+- .clang-format いい感じにする
 - コード行数をカウントする
 - コンパイラどっちつかうか
 - thrid party用のディレクトリに依存ライブラリをまとめる？？
 - c+11
-- json
-- hiredis
 
