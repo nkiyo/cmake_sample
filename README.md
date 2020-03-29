@@ -59,11 +59,11 @@ cd lib # ここに .a ファイルができている
 
 # TODO
 
-- ディレクトリ構成を変更
-- src test ビルドコマンドを統合
+- json
+- httpserver
+- test テストクラスファイルを追加
 - ALE と clang-tidy 連携
 - カバレッジ計測方法を記載する
-- json
 - hiredis
 - .clang-tidy いい感じにする
 - .clang-format いい感じにする

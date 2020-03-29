@@ -7,6 +7,7 @@ set(CMAKE_CXX_FLAGS "-Wall -coverage")
 include_directories(
     ~/googletest/googletest/include
     ~/googletest/googlemock/include
+    ${PROJECT_SOURCE_DIR}/../third_party/cpp-httplib
 )
 link_directories(
     ~/googletest/build/lib
@@ -32,7 +33,10 @@ add_subdirectory(util)
 add_executable(${PROJECT_NAME}
     main.cc
 )
-target_link_libraries(${PROJECT_NAME} util)
+target_link_libraries(${PROJECT_NAME}
+    util
+    pthread
+)
 
 add_executable(UnitTest
     test_main.cc
