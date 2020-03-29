@@ -4,6 +4,14 @@ project(CMakeSample)
 
 set(CMAKE_CXX_FLAGS "-Wall -coverage")
 
+include_directories(
+    ~/googletest/googletest/include
+    ~/googletest/googlemock/include
+)
+link_directories(
+    ~/googletest/build/lib
+)
+
 # For creating LCOV HTML
 #   $ cmake ..
 #   $ make
@@ -19,12 +27,22 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 endif()
 
 add_subdirectory(util)
+#add_subdirectory(test)
 
 add_executable(${PROJECT_NAME}
     main.cc
 )
-
 target_link_libraries(${PROJECT_NAME} util)
+
+add_executable(UnitTest
+    test_main.cc
+)
+target_link_libraries(UnitTest
+    util
+    gtest
+    gmock
+    pthread
+)
 
 # for make install
 install(TARGETS ${PROJECT_NAME} DESTINATION ~/bin)

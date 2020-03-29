@@ -17,7 +17,7 @@ link_directories(
  # 直接のサブディレクトリでないディレクトリに依存する場合の定義法
  #   => stackoverflow 7980784
  #add_subdirectory(../util ../../util)
- add_subdirectory(util) # symlink
+ #add_subdirectory(util) # symlink
 
 # For creating LCOV HTML
 #   $ cmake ..
