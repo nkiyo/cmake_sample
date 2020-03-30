@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <httplib.h>
+#include <stdio.h>
 #include "util/MyClass.h"
 
 using namespace httplib;
@@ -10,28 +10,33 @@ int main() {
 
   Server svr;
 
-  svr.Get("/hi", [](const Request& req, Response& res) {
-    res.set_content("Hello World!", "text/plain");
-  });
+  // `curl 127.0.0.1:1234/hi` => hi
+  svr.Get("/hi", [](const Request& req, Response& res) { res.set_content("Hello World!", "text/plain"); });
 
+  // `curl 127.0.0.1:1234/numbers/123` => 123
+  // `curl 127.0.0.1:1234/numbers/4567` => 4567
   svr.Get(R"(/numbers/(\d+))", [&](const Request& req, Response& res) {
     auto numbers = req.matches[1];
     res.set_content(numbers, "text/plain");
   });
 
+  // `curl 127.0.0.1:1234/body-header-param?key=on --header "Content-Length: 1234"`
+  //   => print "1234"
+  //   => print "on"
   svr.Get("/body-header-param", [](const Request& req, Response& res) {
     if (req.has_header("Content-Length")) {
       auto val = req.get_header_value("Content-Length");
+      printf("Content-Length=%s\n", val.c_str());
     }
     if (req.has_param("key")) {
       auto val = req.get_param_value("key");
+      printf("key=%s\n", val.c_str());
     }
     res.set_content(req.body, "text/plain");
   });
 
-  svr.Get("/stop", [&](const Request& req, Response& res) {
-    svr.stop();
-  });
+  // `curl 127.0.0.1:1234/stop` => サーバ終了
+  svr.Get("/stop", [&](const Request& req, Response& res) { svr.stop(); });
 
   svr.listen("localhost", 1234);
 }

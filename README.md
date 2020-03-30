@@ -59,8 +59,10 @@ cd lib # ここに .a ファイルができている
 
 # TODO
 
+- **doing** httpserver
 - json
-- httpserver
+- clang asan
+- 何らかのシリアライズライブラリ
 - test テストクラスファイルを追加
 - ALE と clang-tidy 連携
 - カバレッジ計測方法を記載する
