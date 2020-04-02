@@ -59,10 +59,11 @@ cd lib # ここに .a ファイルができている
 
 # TODO
 
-- **doing** httpserver
+- POST API 追加
 - json
-- clang asan
 - 何らかのシリアライズライブラリ
+- backward-cpp
+- clang asan
 - test テストクラスファイルを追加
 - ALE と clang-tidy 連携
 - カバレッジ計測方法を記載する
@@ -73,4 +74,5 @@ cd lib # ここに .a ファイルができている
 - コンパイラどっちつかうか
 - thrid party用のディレクトリに依存ライブラリをまとめる？？
 - c+11
+- [x] httpserver
 
