@@ -2,7 +2,9 @@
 
   Checks:          '-*,
                     readability-*,
-                    google-*'
+                    google-*,
+                    llvm-header-guard,
+                    misc-unused-parameters'
 ...
 
 
