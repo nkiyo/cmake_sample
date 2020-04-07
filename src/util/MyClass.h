@@ -1,3 +1,6 @@
+#ifndef _HOME_NKIYO_CMAKE_SAMPLE_SRC_UTIL_MYCLASS_H
+#define _HOME_NKIYO_CMAKE_SAMPLE_SRC_UTIL_MYCLASS_H
+
 class MyClass {
  public:
   int getX() { return x_; };
@@ -10,3 +13,5 @@ class MyClass {
  public:
   int myFunc(int);
 };
+
+#endif
